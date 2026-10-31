@@ -1,0 +1,8 @@
+﻿env_check.txt
+*.tmp
+__pycache__/
+*.pyc
+expected.json
+!.claude/skills/learn-pdm-lite-hgd/assets/answers/expected.json
+.DS_Store
+Thumbs.db

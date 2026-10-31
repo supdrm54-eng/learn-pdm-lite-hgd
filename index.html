@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>진동 노이즈 vs 추세</title>
+<style>
+:root { --bg:#f7f7f5; --card:#fff; --ink:#1d1d1b; --muted:#6b6b66; --border:#e3e2dd; --a:#8a8f98; --b:#2f5d8a; --dot:#c0392b; --start:#b7791f; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#161615; --card:#21211f; --ink:#ecebe6; --muted:#a3a29c; --border:#33332f; --a:#9aa0a8; --b:#7fb0e0; --dot:#ff6b5b; --start:#e3a84a; } }
+:root[data-theme="dark"] { --bg:#161615; --card:#21211f; --ink:#ecebe6; --muted:#a3a29c; --border:#33332f; --a:#9aa0a8; --b:#7fb0e0; --dot:#ff6b5b; --start:#e3a84a; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.55 system-ui,-apple-system,"Malgun Gothic","Apple SD Gothic Neo",sans-serif; }
+main { max-width:760px; margin:0 auto; padding:24px 16px 40px; }
+h1 { font-size:1.35rem; margin:6px 0; } .muted { color:var(--muted); }
+.note { display:inline-block; font-size:.8rem; padding:2px 8px; border:1px solid var(--border); border-radius:99px; color:var(--muted); }
+figure { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:14px; margin:16px 0 0; }
+svg { width:100%; height:auto; display:block; }
+.grid { stroke:var(--border); } .tick { fill:var(--muted); font-size:11px; }
+.line { fill:none; stroke-width:2; } .limit { stroke-dasharray:5 4; stroke-width:1.2; opacity:.8; }
+.dot { fill:var(--dot); } .start { stroke:var(--start); stroke-width:1.5; stroke-dasharray:3 3; } .start-label { fill:var(--start); font-size:11px; }
+.legend { display:flex; flex-wrap:wrap; gap:6px 16px; font-size:.85rem; color:var(--muted); margin-top:8px; }
+.sw { display:inline-block; width:14px; height:3px; vertical-align:middle; margin-right:4px; }
+footer { margin-top:16px; font-size:.82rem; color:var(--muted); } a { color:var(--b); }
+</style></head>
+<body><main>
+<span class="note">실습용 가상 데이터</span>
+<h1>한 번의 튐인가, 꾸준한 상승인가</h1>
+<p>설비A 진동 12:40 3.5은 곧 돌아온 <b>노이즈</b>, 설비B 진동 15:40 2.2·16:00 2.9는 <b>추세</b>다. 설비B의 정비 필요 시점은 상승이 시작된 <b>15:00</b>.</p>
+<figure><svg viewBox="0 0 640 300" role="img" aria-label="설비A·설비B 진동 추이"><line x1="40" x2="626" y1="272.0" y2="272.0" class="grid"/><text x="34" y="276.0" class="tick" text-anchor="end">0</text><line x1="40" x2="626" y1="206.0" y2="206.0" class="grid"/><text x="34" y="210.0" class="tick" text-anchor="end">1</text><line x1="40" x2="626" y1="140.1" y2="140.1" class="grid"/><text x="34" y="144.1" class="tick" text-anchor="end">2</text><line x1="40" x2="626" y1="74.1" y2="74.1" class="grid"/><text x="34" y="78.1" class="tick" text-anchor="end">3</text><text x="40.0" y="292" class="tick" text-anchor="middle">08:00</text><text x="186.5" y="292" class="tick" text-anchor="middle">10:00</text><text x="333.0" y="292" class="tick" text-anchor="middle">12:00</text><text x="479.5" y="292" class="tick" text-anchor="middle">14:00</text><text x="626.0" y="292" class="tick" text-anchor="middle">16:00</text><line x1="40" x2="626" y1="133.2" y2="133.2" stroke="var(--a)" class="limit"/><path d="M40.0,206.7 L64.4,202.7 L88.8,211.3 L113.2,210.6 L137.7,202.7 L162.1,206.0 L186.5,210.6 L210.9,208.7 L235.3,210.6 L259.8,208.7 L284.2,202.1 L308.6,206.0 L333.0,199.4 L357.4,212.6 L381.8,41.1 L406.2,206.0 L430.7,203.4 L455.1,210.0 L479.5,202.1 L503.9,202.1 L528.3,204.7 L552.8,204.0 L577.2,206.7 L601.6,210.6 L626.0,204.0" stroke="var(--a)" class="line"/><circle cx="381.8" cy="41.1" r="5" class="dot"><title>설비A 12:40 3.5 mm/s</title></circle><line x1="40" x2="626" y1="134.5" y2="134.5" stroke="var(--b)" class="limit"/><path d="M40.0,210.0 L64.4,202.7 L88.8,204.0 L113.2,204.0 L137.7,202.7 L162.1,206.0 L186.5,202.7 L210.9,205.4 L235.3,205.4 L259.8,208.7 L284.2,204.7 L308.6,205.4 L333.0,203.4 L357.4,203.4 L381.8,202.1 L406.2,202.7 L430.7,200.7 L455.1,199.4 L479.5,198.1 L503.9,200.1 L528.3,206.0 L552.8,186.2 L577.2,159.8 L601.6,126.9 L626.0,80.7" stroke="var(--b)" class="line"/><circle cx="601.6" cy="126.9" r="5" class="dot"><title>설비B 15:40 2.2 mm/s</title></circle><circle cx="626.0" cy="80.7" r="5" class="dot"><title>설비B 16:00 2.9 mm/s</title></circle><line x1="552.8" x2="552.8" y1="18" y2="272" class="start"/><text x="548.8" y="28" class="start-label" text-anchor="end">정비 필요 시점 15:00</text></svg>
+<div class="legend"><span><i class="sw" style="background:var(--a)"></i>설비A 프레스 메인모터</span><span><i class="sw" style="background:var(--b)"></i>설비B 차체 용접로봇 감속기</span><span>점선 = 설비별 평상 범위 상한(평균 + 2σ)</span><span style="color:var(--dot)">● 이상 후보</span></div>
+</figure>
+<footer>데이터: KMA 자동차특화 AI 융합 전문가 과정 강의 저장소 <a href="https://github.com/keerhee/kma-auto-genai-3-1">keerhee/kma-auto-genai-3-1</a> data/Day5 — 실습용 가상 데이터. 평상 범위는 설비별 평균 ± 2 × 표본표준편차. 만든 방법: Claude Code 수업 learn-pdm-lite-hgd.</footer>
+</main></body></html>

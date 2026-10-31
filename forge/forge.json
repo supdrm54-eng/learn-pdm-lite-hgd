@@ -1,0 +1,10 @@
+{
+  "slug": "learn-pdm-lite-hgd",
+  "answer": {
+    "skill": "learn-pdm-lite-hgd",
+    "workdir": "assets/lab",
+    "cmd": "py -3 -I -X utf8 {answers}/build_lite.py",
+    "expected": "assets/answers/expected.json"
+  },
+  "note": "cmd 는 이 PC(Windows)에 맞춘 것. macOS·Linux 에서는 python3 -I {answers}/build_lite.py"
+}
